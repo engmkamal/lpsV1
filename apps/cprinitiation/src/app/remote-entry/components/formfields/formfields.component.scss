@@ -1,0 +1,86 @@
+
+
+.outer {
+    display: flex;
+    height: 100%;
+  }
+  
+  .drop-col {
+    padding-left: 10px;
+    box-sizing: border-box;
+    flex: 1 1 0px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 0px;
+  }
+  
+  .drop-target {
+    border: 1px solid #888;
+    padding: 10px;
+  }
+  
+  .json-display {
+    padding-top: 10px;
+    box-sizing: border-box;
+    flex: 1 1 auto;
+    border: 1px solid #888;
+    background-color: #99999944;
+    overflow: auto;
+  }
+  
+  .json-row {
+    border: 1px solid grey;
+    margin: 4px;
+    white-space: nowrap;
+    display: inline-block;
+  }
+  
+  .grid-col {
+    flex: 1 1 auto;
+    height: 100%;
+  }
+  
+  .red-row {
+    background-color: #cc222244;
+  }
+  
+  .green-row {
+    background-color: #33cc3344;
+  }
+  
+  .blue-row {
+    background-color: #2244cc44;
+  }
+
+  .action-button {
+    border: none;
+    color: white;
+    padding: 3px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    opacity: 0.7;
+  }
+  
+  .action-button:hover {
+    opacity: 1;
+  }
+  
+  .action-button.edit {
+    background-color: #008cba; /* Blue */
+  }
+  .action-button.update {
+    background-color: #4caf50; /* Green */
+  }
+  
+  .action-button.delete {
+    background-color: #f44336; /* Red */
+  }
+  
+  .action-button.cancel {
+    background-color: #e7e7e7; /* Gray */
+    color: black;
+  }
+  

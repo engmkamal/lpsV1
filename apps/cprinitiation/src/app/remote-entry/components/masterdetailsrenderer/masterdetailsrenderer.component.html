@@ -1,0 +1,9 @@
+<div class="panel-content"> 
+   <ag-grid-angular
+   style="width: 99%; height: 500px; margin-left:5px"
+   class="ag-theme-alpine" 
+   [columnDefs]="mpTG.columnDefs"
+   [defaultColDef]="mpTG.defaultColDef"
+   [rowData]="rowData"
+   (gridReady)="onGridReady($event, 'grid1')"  
+   ></ag-grid-angular>  

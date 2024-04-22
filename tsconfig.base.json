@@ -1,0 +1,42 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2022",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@lps/assets": ["libs/shared/assets/src/index.ts"],
+      "@lps/cpr": ["libs/cpr/src/index.ts"],
+      "@lps/models": ["libs/shared/models/src/index.ts"],
+      "@lps/service": ["libs/shared/service/src/index.ts"],
+      "@lps/ui": ["libs/shared/ui/src/index.ts"],
+      "@lps/utils": ["libs/shared/utils/src/index.ts"],
+      "@mk/json-schema-form": ["libs/shared/mk-json-schema-form/src/index.ts"],
+      "@trungk18/*": ["apps/cprinitiation/src/app/remote-entry/*"],
+      "@trungk18/interface/*": [
+        "apps/cprinitiation/src/app/remote-entry/interface/*"
+      ],
+      "configuration/Module": [
+        "apps/configuration/src/app/remote-entry/entry.module.ts"
+      ],
+      "cprinitiation/Module": [
+        "apps/cprinitiation/src/app/remote-entry/entry.module.ts"
+      ],
+      "creditproposal/Module": [
+        "apps/creditproposal/src/app/remote-entry/entry.module.ts"
+      ]
+    },
+    "allowSyntheticDefaultImports": true
+  },
+  "exclude": ["node_modules", "tmp"]
+}

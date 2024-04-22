@@ -1,0 +1,15 @@
+<ng-container *ngIf="state.schema.layout === 'vertical'">
+    <div *ngFor="let s of states; let i = index">
+        <lps-wrapper *ngIf="show(i)" [state]="s"></lps-wrapper>
+        &nbsp;
+    </div>
+</ng-container>
+<ng-container *ngIf="state.schema.layout !== 'vertical'">
+    <span *ngFor="let s of states; let i = index">
+        <lps-wrapper *ngIf="show(i)" [state]="s"></lps-wrapper>
+        &nbsp;
+    </span>
+</ng-container>
+
+
+

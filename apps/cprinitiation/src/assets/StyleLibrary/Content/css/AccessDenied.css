@@ -1,0 +1,148 @@
+﻿/* ================  Pre loader ======================= */
+.load-overlay-wrap {position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+    z-index:1305; background:#fff;transition: all 0.5s ease-in-out;
+}
+.hide-wrap { opacity:0; visibility:hidden}
+#loading{
+	background-color: #df5a49;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	z-index: 1310;
+	margin-top: 0px;
+	top: 0px;
+}
+#loading-center{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	}
+#loading-center-absolute {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	height: 200px;
+	width: 200px;
+	margin-top: -100px;
+	margin-left: -100px;	
+
+}
+.object{
+    -moz-border-radius: 50% 50% 50% 50%;
+	-webkit-border-radius: 50% 50% 50% 50%;
+	border-radius: 50% 50% 50% 50%;
+	position: absolute;
+	border-left: 5px solid #FFF;
+	border-right: 5px solid #FFF;
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	-webkit-animation: animate 2s infinite;
+	animation: animate 2s infinite;	
+	}
+
+#object_one{
+	left: 75px;
+	top: 75px;
+	width: 50px;
+	height: 50px;
+	}
+							
+#object_two{
+	left: 65px;
+	top: 65px;
+	width: 70px;
+	height: 70px;
+	-webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+	}
+		
+#object_three{
+	left: 55px;
+	top: 55px;
+	width: 90px;
+	height: 90px;
+	-webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+	}
+#object_four{
+	left: 45px;
+	top: 45px;
+	width: 110px;
+	height: 110px;
+	-webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+	
+	}	
+
+
+/* Main Page */
+.main-bg { position:absolute; height:100%}
+.mainpage-wrap {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: url('../images/BG_main.png') no-repeat 100% 100% ;
+}
+.home_grid_box { padding-top:50px;width:100%;height:100%}
+.frm-title { text-transform:uppercase}
+
+/* Hide Left menu btn */
+button#showLeftPush { display:none}
+.menu-bar { display:none}
+.frm-title { display:none}
+
+.grid {
+	position: relative;
+	clear: both;
+	margin: 0 auto;
+	padding: 1em 0 4em;
+	max-width: 1000px;
+	list-style: none;
+	text-align: center;opacity:0;top:30px;transition: all 1.5s ease-in-out;
+}
+.grid.move {
+    opacity:1;top:100px
+}
+
+.icon { width:100%; height:100px;padding: 10px 0; display:block; float:left; position:relative;top:0px;left:0px;opacity:0}
+    .icon i {font-size: 80px;color: #fff;text-shadow: 1px 1px 40px rgba(0, 0, 0, 0.4);}
+.icon-ani {top:10px;left:0px;opacity:1}
+
+.err-text { width:100%; height:50px; padding: 10px 0; display:block; float:left; text-shadow:1px 1px 1px #333; font-size:20px;position:relative;top:-5px;left:0px; color:#fff; text-transform:uppercase;opacity:0;
+            animation: movebottomani 1s linear ;animation-fill-mode: forwards; animation-delay:1s
+}
+.err-text.sub { font-size:14px; text-transform:capitalize;animation: movebottomani-opc 1s linear ;animation-fill-mode: forwards; animation-delay:1.3s}
+
+.err-text.go-back {animation: movebottomani-opc 1s linear ;animation-fill-mode: forwards; animation-delay:1.6s}
+.err-text.go-back a {font-size:18px; color:#d8a118; font-weight:bold;transition: all 0.3s ease-in-out;text-transform:capitalize}
+.err-text.go-back a:hover { color:#ffd800; text-decoration:none}
+
+
+@-webkit-keyframes movebottomani {
+    from {top: 0px; opacity:0}
+    to {top: 10px; opacity:1}
+} 
+@keyframes movebottomani {
+    from {top: 0px;opacity:0}
+    to {top: 10px;opacity:1}
+}
+
+@-webkit-keyframes movebottomani-opc {
+    from {top: 0px; opacity:0}
+    to {top: 10px; opacity:0.7}
+} 
+@keyframes movebottomani-opc {
+    from {top: 0px;opacity:0}
+    to {top: 10px;opacity:0.7}
+}
+
+/* ================= Media queries ========================= */
+@media(max-width:800px) {
+
+
+
+}

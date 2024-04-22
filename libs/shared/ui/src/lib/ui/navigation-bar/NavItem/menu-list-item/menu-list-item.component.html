@@ -1,0 +1,60 @@
+<ng-container 
+  *ngTemplateOutlet="isItemLink ? itemLinkTemp: defaultTemp">    
+</ng-container>
+
+<ng-template #itemLinkTemp>
+  <mat-expansion-panel routerLinkActive="active-item" #rla2="routerLinkActive"
+  (opened)="panelOpenState = true"
+  (closed)="panelOpenState = false"
+  [expanded]="rla2.isActive"  
+  class="min-padding navItmBg">
+    <mat-expansion-panel-header style="margin-left: -25px;">
+      <mat-panel-title>
+        <a mat-list-item (click)="onItemSelected(item)"
+          [ngClass]="{'active': item.route ? router.isActive(item.route, true): false, 'expanded': expanded}"
+          class="menu-list-item"
+          routerLinkActive="active-link">
+            <mat-icon matListItemIcon [fontSet]=" 'material-icons' " >{{item.iconName}}</mat-icon>
+            <span matListItemTitle>{{item.displayName}}</span>
+            <span fxFlex *ngIf="item.children && item.children.length">
+            </span>
+        </a>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-nav-list > 
+      <div >
+        <lps-menu-list-item *ngFor="let child of item.children" [item]="child" [depth]="depth+1" [sidenavWidth]="sideavWidthSignal()" >
+        </lps-menu-list-item>
+      </div>
+    </mat-nav-list>
+  </mat-expansion-panel>
+</ng-template>
+
+<ng-template #defaultTemp>
+  <mat-expansion-panel routerLinkActive="active-item" #rla2="routerLinkActive"
+  class="min-padding navItmBg"  
+  hideToggle
+  [disabled]="'true'">
+    <mat-expansion-panel-header style="margin-left: -25px; margin-right: -47px;">
+      <mat-panel-title>
+        <a mat-list-item (click)="onItemSelected(item)"
+          [ngClass]="{'active': item.route ? router.isActive(item.route, true): false, 'expanded': expanded}"
+          class="menu-list-item"
+          [routerLink]="item.route"
+          #rla="routerLinkActive"
+          [activated]="rla.isActive"
+          routerLinkActive="active-link">
+          <mat-icon [fontSet]=" rla.isActive ? 'material-icons' : 'material-icons-outlined' " matListItemIcon>{{item.iconName}}</mat-icon>
+          <span matListItemTitle>{{item.displayName}}</span>
+        </a>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-nav-list > 
+      <div >
+        <lps-menu-list-item *ngFor="let child of item.children" [item]="child" [depth]="depth+1" [sidenavWidth]="sideavWidthSignal()">
+        </lps-menu-list-item>
+      </div>
+    </mat-nav-list>
+  </mat-expansion-panel>
+</ng-template>
+

@@ -1,0 +1,41 @@
+<!-- <fieldset [formGroupName]="controlKey">
+    <legend>Delivery Address</legend>
+    <div>
+        <label>zipcode:</label>
+        <input type="string" formControlName="zipcode" />
+    </div>
+    <div>
+        <label>street:</label>
+        <input type="string" formControlName="street" />
+    </div>
+</fieldset> -->
+
+<fieldset [formGroupName]="controlKey">
+    <legend>Delivery Address</legend>
+    <div class="p-2">
+        <mat-form-field appearance="outline">
+          <mat-label>Continents</mat-label>
+          <mat-select disableRipple formControlName="contintent" (valueChange)="selectContintent($event)">
+            <mat-option value="">Select</mat-option>
+            <mat-option *ngFor="let continent of list" [value]="continent.id" [attr.data-state-name]="continent.label">{{
+                continent.label }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="p-2">
+        <mat-form-field appearance="outline">
+          <mat-label>country</mat-label>
+          <mat-select disableRipple formControlName="country" >
+            <mat-option value="">Select</mat-option>
+            <mat-option *ngFor="let country of selectedContriesList" [value]="country.id" [attr.data-state-name]="country.label">{{
+                country.label }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div>
+
+</fieldset>
+
+

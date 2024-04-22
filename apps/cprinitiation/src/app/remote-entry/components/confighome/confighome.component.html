@@ -1,0 +1,66 @@
+<div class="flex container mt-7 col-12" >
+
+  <!-- <div fxLayout="row wrap" class="col-12">
+
+    <div class="col-md-6">
+      <div class="example-box" cdkDrag>
+        <div class="col-md-12">
+          <mat-accordion class="col-md-12">
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Title
+                </mat-panel-title>
+                <mat-panel-description>
+                  (click to {{panelOpenState ? 'collapse' : 'expand'}})
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+
+              @defer() {
+              <div class="lps-board-dnd-list">Deleted... </div>
+              } @placeholder() {
+              <p class="text-gray-500">Plaeholder...
+              <p>
+                } @loading(minimum 100) {
+              <p class="text-green-500">Loading...
+              <p>
+                } @error {
+              <p class="text-red-500">Something went wrong...
+              <p>
+                }
+
+            </mat-expansion-panel>
+          </mat-accordion>
+
+          <div class="example-handle" cdkDragHandle style="cursor: move;">
+            <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z">
+              </path>
+              <path d="M0 0h24v24H0z" fill="none"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div> -->
+  
+</div> 
+  
+  <div fxLayout="row wrap" class="col-12">
+    <div class="row col-12">
+      <lps-drag-accordion-card ></lps-drag-accordion-card>
+    </div>
+
+    <div class="row col-12">
+      <lps-drag-accordion-card ></lps-drag-accordion-card>
+    </div>
+
+    <div class="row col-12">
+      <lps-drag-accordion-card ></lps-drag-accordion-card>
+    </div>
+  </div>
+
+

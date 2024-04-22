@@ -1,0 +1,93 @@
+<div class="d-flex" cdkDropListGroup>
+	<div class="board-dnd-list" section-dnd-list *ngFor="let lane of lanes" [lane]="lane">
+	</div>
+</div>
+
+<br/>
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="drag-container">
+          <div class="section-heading">Section Fields</div>
+  
+          <div cdkDropList #sectionFieldsList="cdkDropList" [cdkDropListData]="sectionFields"
+            [cdkDropListConnectedTo]="[primaryFieldsList,additionalFieldsList]" class="item-list" (cdkDropListDropped)="drop($event)">
+            
+            @for (sectionField of sectionFields; track $index){
+              <div cdkDrag>
+                <lps-widgetrenderer [widgetrendererParam]="sectionField" ></lps-widgetrenderer>
+              </div>
+            }
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="drag-container">
+          <div class="section-heading">Primary Fields</div>
+  
+          <div cdkDropList #primaryFieldsList="cdkDropList" [cdkDropListData]="primaryFields"
+            [cdkDropListConnectedTo]="[sectionFieldsList,additionalFieldsList]" class="item-list" (cdkDropListDropped)="drop($event)" style="min-height: 100px;">
+            
+            @for (primaryField of primaryFields; track $index){
+              <div cdkDrag>
+                <lps-widgetrenderer [widgetrendererParam]="primaryField" ></lps-widgetrenderer>
+              </div>
+            }
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="drag-container">
+          <div class="section-heading">Additional Fields</div>
+  
+          <div cdkDropList #additionalFieldsList="cdkDropList" [cdkDropListData]="additionalFields"
+            [cdkDropListConnectedTo]="[primaryFieldsList,sectionFieldsList]" class="item-list" (cdkDropListDropped)="drop($event)">
+            
+            @for (additionalField of additionalFields; track $index){
+              <div cdkDrag>
+                <lps-widgetrenderer [widgetrendererParam]="additionalField" ></lps-widgetrenderer>
+              </div>
+            }
+
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <br/>
+
+    <br/>
+    <div class="container mt-4">
+      <div class="card example-card" style="width: 50rem">
+        <div class="card-body">
+          <h5 class="card-title text-center m-2">Dependent Dropdown Selection</h5>
+          <form [formGroup]="form">
+            <div class="justify-content-center mt-4">
+              <div class="p-2">
+                <mat-form-field appearance="outline">
+                  <mat-label>Parent Field 1:</mat-label>
+                  <input matInput formControlName="ParentField1">
+                </mat-form-field>
+              </div>
+
+              <lps-configparent controlKey="deliveryAddress"></lps-configparent>
+              <button (click)="submit()">Submit</button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <br/>
+    <pre>{{pre}}</pre>
+</div>
+
+
+
+
+
+

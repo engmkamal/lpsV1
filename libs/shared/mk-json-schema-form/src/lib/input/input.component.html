@@ -1,0 +1,33 @@
+<!-- <mat-form-field appearance="outline" >
+    <mat-label>{{state.name}}</mat-label>
+    <input *ngIf="getInputType() !== 'number'" matInput [type]="getInputType()" [formControl]="formControl()"
+        [placeholder]="state.schema.examples && state.schema.examples[0] ? state.schema.examples[0] : ''">
+    <input *ngIf="getInputType() === 'number'" matInput type="number" [formControl]="formControl()"
+        [placeholder]="state.schema.examples && state.schema.examples[0] ? state.schema.examples[0] : ''">
+    <mat-error *ngIf="state.schema.errorMessage">{{state.schema.errorMessage}}</mat-error>
+</mat-form-field> -->
+
+
+
+<!-- <div class="form-group row">
+    <label class="col-sm-2 col-form-label">{{state.name}}</label>
+    <div class="col-sm-10">
+        <input *ngIf="getInputType() !== 'number'" [type]="getInputType()" [formControl]="formControl()"
+        [placeholder]="state.schema.examples && state.schema.examples[0] ? state.schema.examples[0] : ''">
+    <input *ngIf="getInputType() === 'number'" type="number" [formControl]="formControl()"
+        [placeholder]="state.schema.examples && state.schema.examples[0] ? state.schema.examples[0] : ''">
+    </div>
+</div> -->
+
+
+<div class="col-sm-12">
+    <mat-form-field appearance="outline" >
+        <input *ngIf="getInputType() !== 'number'" matInput [type]="getInputType()" [formControl]="formControl()"
+            [placeholder]="state.schema.examples && state.schema.examples[0] ? state.schema.examples[0] : ''">
+        <input *ngIf="getInputType() === 'number'" matInput type="number" [formControl]="formControl()"
+            [placeholder]="state.schema.examples && state.schema.examples[0] ? state.schema.examples[0] : ''">
+        <mat-error *ngIf="state.schema.errorMessage">{{state.schema.errorMessage}}</mat-error>
+    </mat-form-field>
+</div>
+
+

@@ -1,0 +1,174 @@
+
+<div [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="mat-elevation-z3 mat-toolbar">
+     <mat-toolbar-row fxLayout="row" class="noStyle">
+      <div fxFlex="2 0 10px" >
+         <button mat-icon-button (click)="leftsidenav.toggle()" style="margin-left: -6px;">
+            <mat-icon>menu</mat-icon>
+         </button>
+      </div>  
+      
+      <div fxFlex="3 0 1px" >
+          <a href="index.html" ><img style="height: 40px; width: 40px;" src="assets/StyleLibrary/Content/images/basic-bank-logo.png" alt="homepage"></a>
+        </div>
+        <div fxFlex="5 0 10px" style="margin-top: 0px;">
+          <div>
+            <a href="index.html" style="text-decoration:none;">
+               <div mat-line style="color:white; font-size: 20px; font-family: 'Times New Roman', Times, serif; font-style: italic; line-height:100%;">
+                 BASIC Bank Limited
+              </div>
+              <p style="color:white; font-size: 7px; font-style: italic; line-height:80%; background-color: rgb(152, 6, 6); width:fit-content; letter-spacing: 3px; padding: 2px;">
+                 Serving people for progress
+              </p>
+              <p style="color:white; font-size: 7px; line-height:90%; margin-top: 3px; letter-spacing: 2px; ">
+                  A STATE OWNED SCHEDULED BANK
+               </p>
+             </a>
+          </div>
+        </div>
+        <div fxFlex="1 0 40px" fxFlex.xs="1 0 40px"></div>
+
+        
+        
+        <div fxFlex="1 0 40px" fxFlex.xs="1 0 40px"></div>
+
+        
+        <div fxFlex="9 0 40px" fxFlex.xs="1 0 40px" class="embosshed">Loan Processing System</div>
+        <div fxFlex="10 0 40px" fxFlex.xs="1 0 40px"></div>
+        <div fxFlex="2 0 40px" fxFlex.xs="1 0 40px">
+          <mat-nav-list>
+            <mat-list-item (click)="trigger.openMenu()">
+               <div mat-line style="color:white; font-size: 10px; line-height:120%;">
+                {{date}}
+               </div>
+               <p mat-line style="color:white; font-size: 8px; line-height:100%;">
+                {{time}}
+               </p>
+            </mat-list-item>
+            
+         </mat-nav-list>
+           
+        </div>
+        <div fxFlex="1 0 10px">
+          <button mat-icon-button (click)="toggleFullscreen()">
+             <mat-icon *ngIf="!isFullscreenWindow">fullscreen</mat-icon>
+             <mat-icon *ngIf="isFullscreenWindow">fullscreen_exit</mat-icon>
+          </button>
+        </div>
+        
+        <div fxFlex="1 0 10px" fxFlex.xs="1 0 10px">
+           <button mat-icon-button>
+              <mat-icon>settings</mat-icon>
+           </button>
+        </div>
+        <div fxFlex="1 0 10px" fxFlex.xs="1 0 10px">
+           <button mat-icon-button>
+              <mat-icon>account_circle</mat-icon>
+           </button>
+        </div>
+        <div fxFlex="3 0 10px" fxFlex.xs="4 0 2px" style="color:white;">
+           <mat-nav-list>
+              <mat-list-item (click)="trigger.openMenu()">
+                 <div mat-line style="color:white; font-size: 10px; line-height:120%;">
+                    {{ this.navigationInfo.user.name }}
+                 </div>
+                 <p mat-line style="color:white; font-size: 8px; line-height:100%;">
+                    {{ this.navigationInfo.user.email }}
+                 </p>
+              </mat-list-item>
+              <mat-menu #menu="matMenu">
+                 <button mat-menu-item>View profile</button>
+                 <button mat-menu-item>Add contact</button>
+              </mat-menu>
+           </mat-nav-list>
+        </div>
+        <div fxFlex="1 0 10px" fxFlex.xs="1 0 10px">
+           <button mat-icon-button #trigger=matMenuTrigger [matMenuTriggerFor]="menu">
+           <mat-icon>more_vert</mat-icon>
+           </button>
+        </div>
+        <div fxFlex="1 0 10px" fxFlex.xs="1 0 10px">
+           <button mat-icon-button>
+              <mat-icon>dashboard</mat-icon>
+           </button>
+           <button mat-icon-button *ngIf="!showLoginFrm">
+              <mat-icon>verified_user</mat-icon>
+           </button>
+        </div>
+        <div fxFlex="1 0 10px" fxFlex.xs="1 0 10px"></div>
+     </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+     <mat-sidenav #leftsidenav class="leftSidenav" [ngStyle]="{ 'width.em': sidenavWidth() }" opened="true"
+     (mouseenter)="increase()" (mouseleave)="decrease()" [mode]="mobileQuery.matches ? 'over' : 'side'"
+     [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+     
+         <div style="display: flex; align-items: center; justify-content: center;">
+            
+            <img src="assets/StyleLibrary/Content/images/skale_logo.png" alt="skaleLogo" [height]="sklLogoHt()" [width]="sklLogoWid()">
+            
+         </div>         
+
+         <mat-nav-list *ngIf="sidenavWidth() < 6">
+            @for (item of navItems(); track item) {
+               <a mat-list-item 
+                  class="menu-list-item"
+                  [routerLink]="item.route"
+                  #rla="routerLinkActive"
+                  [activated]="rla.isActive"
+                  routerLinkActive="active-link">
+                  <mat-icon [fontSet]=" rla.isActive ? 'material-icons' : 'material-icons-outlined' " >{{item.iconName}}</mat-icon>
+               </a>
+            }
+         </mat-nav-list>
+
+         <mat-accordion [@.disabled]="disableAnimation" displayMode="flat" *ngIf="sidenavWidth() > 6" >
+            @for (item of navItems(); track item) {
+               <lps-menu-list-item [item]="item" [sidenavWidth]="sidenavWidth()" ></lps-menu-list-item>
+            }@empty {
+               <div>No Navigation Item Available</div>
+            }
+         </mat-accordion>
+
+     </mat-sidenav>
+
+     <mat-sidenav-content style="width: 96%; min-height: calc(100vh - 50px); height:100%">
+        <mat-drawer-container >
+           <mat-drawer #startDrawer mode="side" [(opened)]="openedStartDrawer" position="start" style="width:175px;">
+           </mat-drawer>
+           <mat-drawer #sideNav mode="side" [(opened)]="openedEndDrawer" position="end" style="width:300px;">
+           <ng-container>
+              <a routerLink="./itservicerequest">
+              itservicerequest
+              </a>
+           </ng-container>
+           </mat-drawer>
+           <mat-drawer-content>
+
+            @if(loadContainer){
+               <div class="loader-center">    
+                  <mat-spinner></mat-spinner>
+               </div>
+            }@else{
+              <div style="background-color: rgb(237, 245, 248); padding: 20px; min-height: calc(100vh - 50px); height:100%; overflow: visible">
+               @defer () {
+                  <router-outlet></router-outlet>
+                } @placeholder() {
+                  <p class="text-gray-500">Plaeholder...<p>
+                } @loading(minimum 100) { 
+                  <p class="text-green-500">Loading...<p>
+                } @error {
+                  <p class="text-red-500">Something went wrong...<p>
+                }
+              </div>
+            }
+           </mat-drawer-content>
+        </mat-drawer-container>
+     </mat-sidenav-content>
+
+     
+  </mat-sidenav-container>
+</div>
+
+
+

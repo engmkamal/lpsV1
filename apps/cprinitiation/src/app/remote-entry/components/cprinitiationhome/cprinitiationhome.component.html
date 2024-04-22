@@ -1,0 +1,111 @@
+<div fxLayout="row wrap" class="col-12">
+  @if(ngxLoadingService.loading){
+    <div>    
+      <ngx-loading
+        [show]="ngxLoadingService.loading"
+        [config]="ngxLoadingService.config"
+      ></ngx-loading>
+    </div>
+  }@else{
+    <div class="row col-12">
+      <lps-drag-accordion-card >
+        <div class="col-12 col" >
+          <div class="card col-12">
+            <div class="card-body">
+              <h5 class="card-title text-center m-2" style="font-size: 20px;">Preliminary Information</h5>
+              <form [formGroup]="form">
+                <div class="justify-content-center mt-4">
+                  <div class="p-2">
+      
+      
+                    <div class="col-md-12" >
+                      <div class="drag-container" >                  
+                        
+                          @for (additionalField of preInfoPrimaryFields; track $index){
+                            <div>
+                              <lps-widgetrenderer [widgetrendererParam]="additionalField" ></lps-widgetrenderer>
+                            </div>
+                          }        
+                        
+                      </div>
+                      <br/>
+                      <h5 class="card-title m-2" style="font-size: 20px;">Additional Fields</h5>
+                      <br/>
+                      <div class="drag-container" >                  
+                        
+                          @for (aField of addedFields(); track aField){
+                            <div>
+                              <lps-widgetrenderer [widgetrendererParam]="aField" ></lps-widgetrenderer>
+                            </div>
+                          }        
+                        
+                      </div>
+                    </div>
+      
+                    
+      
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <br/>
+          <div class="row col-12">
+              <form class="row col-12" [formGroup]="addRemoveField">
+      
+                  <div class="row col-6">
+                      <div class="col-9">
+                          <mat-form-field>
+                              <mat-label>Select Field To Add</mat-label>
+                              <mat-select formControlName="fldToAdd">
+                                <mat-option disabled>None</mat-option>
+                                @for (fieldToAdd of fieldsToAdd(); track fieldToAdd) {
+                                  <mat-option [value]="fieldToAdd" >{{fieldToAdd.groupTitle}}</mat-option>
+                                }
+                              </mat-select>
+                          </mat-form-field>
+                      </div>
+                      <div class="col-3">
+                          <button mat-raised-button color="primary" (click)="addSelectedField(addRemoveField)">Add Field</button>
+                      </div>
+                  </div>
+      
+                  <div class="row col-6">
+                      <div class="col-9">
+                          <mat-form-field>
+                              <mat-label>Select Field To Remove</mat-label>
+                              <mat-select formControlName="fldToRemove">
+                                <mat-option disabled>None</mat-option>
+                                @for (fieldToRemove of addedFields(); track fieldToRemove) {
+                                  <mat-option [value]="fieldToRemove" >{{fieldToRemove.groupTitle}}</mat-option>
+                                }
+                              </mat-select>
+                          </mat-form-field>
+                      </div>
+                      <div class="col-3">
+                          <button mat-flat-button color="accent" (click)="removeSelectedField(addRemoveField)">Remove Field</button>
+                      </div>
+                  </div>
+      
+              </form>
+      
+              <br/>
+      
+              
+          </div>
+      </div>
+      </lps-drag-accordion-card>
+    </div> 
+  }
+
+   
+</div>
+
+
+
+
+
+
+
+
+

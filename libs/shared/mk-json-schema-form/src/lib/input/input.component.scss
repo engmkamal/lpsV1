@@ -1,0 +1,16 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+.login-box {
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #26282a;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 30%);
+    width: 220px;
+    right: 0;
+    min-height: 210px;
+    z-index: 1;
+    border: 1px solid transparent;
+    border-top: 1px solid #f1f1f5;
+    font-family: Arial;
+}
+

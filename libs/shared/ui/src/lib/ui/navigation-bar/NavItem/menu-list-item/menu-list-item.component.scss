@@ -1,0 +1,115 @@
+
+/*
+:host {
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  width: 100%;
+
+  .mat-list-item.active {
+    background-color: burlywood;
+  }
+  &:hover,
+  &:focus {
+    >.mat-list-item:not(.expanded) {
+      background-color: blanchedalmond !important;
+    }
+  }
+}
+*/
+.mat-list-item {
+  padding: 8px 0;
+  display: flex;
+  width: auto;
+
+  .routeIcon {
+    margin-right: 40px;
+  }
+}
+
+::ng-deep .min-padding {
+  .mat-expansion-panel-content{
+  .mat-expansion-panel-body {
+    padding-left: 10px  !important;
+    padding-right: 0px  !important;
+    padding-bottom: 0px  !important;
+  }
+ }
+}
+
+::ng-deep .navItmBg {
+
+  .mat-expansion-panel {
+    background-color: #6776a3;
+  }
+  
+  .mat-expansion-panel-header {
+    color: #6D7BA4;
+    background-color: rgba(#6D7BA4, 0.8);
+  }
+  
+  mat-expansion-panel-header.mat-expanded,
+  mat-expansion-panel-header.mat-expanded:focus {
+    background-color: rgba(#6D7BA4, 0.8);
+  }
+  
+  .mat-expansion-panel:not(.mat-expanded)
+    .mat-expansion-panel-header:hover:not([aria-disabled="true"]) {
+    background-color: rgba(#6D7BA4, 1);
+  }
+  
+  .mat-expansion-panel.mat-expanded
+    .mat-expansion-panel-header:hover:not([aria-disabled="true"]) {
+    background-color: rgba(#6D7BA4, 1);
+  }
+
+  .mat-expansion-panel-body{
+    background-color:#6a78a2 ;
+  }
+}
+
+.menu-list-item{
+  border-left:10px solid;
+  border-left-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+
+.active-link{
+  border-left:10px solid;
+  border-left-color: hsl(156, 95%, 39%);
+  background: #6776a3;
+}
+
+/*
+.mat-expansion-panel {
+  background-color: #6776a3;
+}
+
+.mat-expansion-panel-header {
+  color: #6D7BA4;
+  background-color: rgba(#6D7BA4, 0.8);
+}
+
+mat-expansion-panel-header.mat-expanded,
+mat-expansion-panel-header.mat-expanded:focus {
+  background-color: rgba(#6D7BA4, 0.8);
+}
+
+.mat-expansion-panel:not(.mat-expanded)
+  .mat-expansion-panel-header:hover:not([aria-disabled="true"]) {
+  background-color: rgba(#6D7BA4, 1);
+}
+
+.mat-expansion-panel.mat-expanded
+  .mat-expansion-panel-header:hover:not([aria-disabled="true"]) {
+  background-color: rgba(#6D7BA4, 1);
+}
+
+*/
+
+
+
+
+
+
+
